@@ -1,0 +1,104 @@
+The arena is at (0x7f68a1aad000) and the size is 65488
+We'll do 20 allocation(s)
+The min size is 1024 and the max size is 4096
+We allow a maximum of 10 blocks allocated
+i: 0
+No allocation: We allocate a new block of 3552
+dalloc memory for 3552
+0x7f68a1aad000
+Allocated list:(0x7f68a1aad000)--
+i: 1
+We allocate a new block of 3188
+dalloc memory for 3188
+0x7f68a1aaddf8
+Allocated list:(0x7f68a1aaddf8)--(0x7f68a1aad000)--
+i: 2
+We'll free a block
+Allocated list:(0x7f68a1aaddf8)--(0x7f68a1aad000)--
+rand = 0
+We free the block (0x7f68a1aad000)with the size 3552
+Free block (0x7f68a1aad000), size:3552, bsize:0, bfree0
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7f68a1aaea84), the size is 58700, the previous head is ((nil)) and the next head is (0x7f68a1abcfe8)
+bfree: 0 and bsize:3188
+Heap number 1
+The head is at (0x7f68a1abcfe8), the size is 0, the previous head is (0x7f68a1aaea84) and the next head is ((nil))
+bfree: 1 and bsize:58700
+End of flistprint---------------------------------------------------------
+i: 3
+We'll free a block
+Allocated list:(0x7f68a1aaddf8)--
+We free the block (0x7f68a1aaddf8)with the size 3188
+Free block (0x7f68a1aaddf8), size:3188, bsize:3552, bfree1
+Here for block (0x7f68a1aaddf8):3552
+Before: (0x7f68a1aad000)
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7f68a1abcfe8), the size is 0, the previous head is ((nil)) and the next head is ((nil))
+bfree: 1 and bsize:58700
+End of flistprint---------------------------------------------------------
+i: 4
+No allocation: We allocate a new block of 3726
+dalloc memory for 3726
+0x7f68a1aad000
+Allocated list:(0x7f68a1aad000)--
+i: 5
+We allocate a new block of 3130
+dalloc memory for 3130
+0x7f68a1aadea6
+Allocated list:(0x7f68a1aadea6)--(0x7f68a1aad000)--
+i: 6
+We allocate a new block of 2395
+dalloc memory for 2395
+0x7f68a1aaeaf8
+Allocated list:(0x7f68a1aaeaf8)--(0x7f68a1aadea6)--(0x7f68a1aad000)--
+i: 7
+We'll free a block
+Allocated list:(0x7f68a1aaeaf8)--(0x7f68a1aadea6)--(0x7f68a1aad000)--
+rand = 1
+We free the block (0x7f68a1aad000)with the size 3726
+Free block (0x7f68a1aad000), size:3726, bsize:0, bfree0
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7f68a1aaf46b), the size is 56165, the previous head is ((nil)) and the next head is (0x7f68a1abcfe8)
+bfree: 0 and bsize:2395
+Heap number 1
+The head is at (0x7f68a1abcfe8), the size is 0, the previous head is (0x7f68a1aaf46b) and the next head is ((nil))
+bfree: 1 and bsize:56165
+End of flistprint---------------------------------------------------------
+i: 8
+We allocate a new block of 3645
+dalloc memory for 3645
+0x7f68a1aad000
+Allocated list:(0x7f68a1aad000)--(0x7f68a1aaeaf8)--(0x7f68a1aadea6)--
+i: 9
+We'll free a block
+Allocated list:(0x7f68a1aad000)--(0x7f68a1aaeaf8)--(0x7f68a1aadea6)--
+rand = 0
+We free the block (0x7f68a1aaeaf8)with the size 2395
+Free block (0x7f68a1aaeaf8), size:2395, bsize:3130, bfree0
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7f68a1aade55), the size is 57, the previous head is ((nil)) and the next head is (0x7f68a1abcfe8)
+bfree: 0 and bsize:3645
+Heap number 1
+The head is at (0x7f68a1abcfe8), the size is 0, the previous head is (0x7f68a1aade55) and the next head is ((nil))
+bfree: 1 and bsize:56165
+End of flistprint---------------------------------------------------------
+i: 10
+We'll free a block
+Allocated list:(0x7f68a1aad000)--(0x7f68a1aadea6)--
+rand = 0
+We free the block (0x7f68a1aadea6)with the size 3130
+Free block (0x7f68a1aadea6), size:3130, bsize:3726, bfree1
+Here for block (0x7f68a1aadea6):3726
+Before: (0x7f68a1aad000)
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7f68a1aade55), the size is 57, the previous head is ((nil)) and the ne
