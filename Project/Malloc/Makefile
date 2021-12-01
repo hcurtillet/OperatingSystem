@@ -1,7 +1,7 @@
 FLAGS= -std=c99 -Wall -Wextra -c -g
 
-test: test.o dlmall.o
-	gcc -o test.out test.o dlmall.o
+test: test.o dlmalllist.o
+	gcc -o test.out test.o dlmalllist.o
 benchmark: benchmark.o dlmall.o
 	gcc -o benchmark.out benchmark.o dlmall.o
 dlmall.o: dlmall.c
@@ -12,5 +12,9 @@ test.o: test.c
 
 benchmark.o: benchmark.c
 	gcc -c benchmark.c
+
+dmalllist.o: dmalllist.c
+	gcc -c dmalllist.c
+
 clean:
 	rm -f *.o *.out

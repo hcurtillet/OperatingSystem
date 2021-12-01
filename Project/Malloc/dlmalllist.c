@@ -1,4 +1,4 @@
-#include "dlmall.h"
+#include "dlmalllist.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
@@ -21,9 +21,13 @@
 
 #define ARENA (64*1024)
 
+#define NBLIST 4
+
 struct head * arena = NULL;
 
-struct head * flist;
+struct head * flist[NBLIST];
+
+int currentlist;
 
 
 struct head * after(struct head *block){
@@ -38,6 +42,7 @@ struct head * split(struct head * block, int size){
     int rsize = block->size - size-HEAD;
     block->size = size;
     block->free=FALSE;
+    printf("We split\n");
     struct head * splt = after(block);
     splt->bfree = block->free;
     splt->bsize = block->size;
@@ -47,9 +52,11 @@ struct head * split(struct head * block, int size){
     splt->prev = block;
 
     struct head * aft = block->next;
-    aft->prev = splt;
-    aft->bsize = splt->size;
-    aft->bfree = splt->free;
+    if(aft !=NULL){
+        aft->prev = splt;
+        aft->bsize = splt->size;
+        aft->bfree = splt->free;
+    }
 
     block->next = splt;
     return splt;
@@ -89,7 +96,18 @@ struct head *new(){
 
     new->next=sentinel;
     arena = (struct head*)new;
-
+    printf("The arena is at (%p) and the size is %d\n",arena, ARENA);
+    struct head * tmp = arena;
+    for(int i=0; i<NBLIST; i++){
+        tmp->size = ARENA/NBLIST;
+        tmp->free = TRUE;
+        tmp->bfree = FALSE;
+        tmp->bsize = 0;
+        tmp->prev = NULL;
+        tmp->next = NULL;
+        flist[i] = tmp;
+        tmp = after(tmp);
+    }
     return new;
 }
 
@@ -103,19 +121,19 @@ void detach(struct head * block){
         block->prev->next = block->next;
     }
     else{
-        flist = block->next;
+        flist[currentlist] = block->next;
     }
 }
 
 void insert(struct head *block){
     block->free = TRUE;
-    block->next = flist;
+    block->next = flist[currentlist];
     block->prev = NULL;
     block->bfree = FALSE;
-    if(flist != NULL){
-        flist->prev = block;
+    if(flist[currentlist] != NULL){
+        flist[currentlist]->prev = block;
     }
-    flist = block;
+    flist[currentlist] = block;
 
 }
 
@@ -130,17 +148,23 @@ int adjust(int size){
 }
 
 struct head * find(int size){
-    struct head * current = flist;
+    currentlist = findlist(size);
+    struct head * current = flist[currentlist];
     int sizeajust = adjust(size);
-    printf("Real alloc size:%d\n",sizeajust);
+    printf("Real alloc size:%d in the list %d\n",sizeajust,currentlist);
     while(current!=NULL){
+        printf("current (%p):%d\n", current, current->size);
         if(current->size == sizeajust){
             detach(current);
             return current;
         }
         if(current->size > sizeajust){
+            //printf("Here\n");
             split(current, sizeajust-HEAD);
+            //flistprint();
             detach(current);
+            //printf("Then\n");
+            //flistprint();
             return current;
         }
         current = current->next;
@@ -165,13 +189,13 @@ void *dalloc(size_t request){
 void dfree(void *memory){
     if(memory !=NULL){
         struct head *block = memory;
-        printf("Free block (%p), size:%d, bsize:%d, bfree%d\n",block, block->size, block->bsize, block->bfree);     
+        printf("Free block (%p), size:%d, bsize:%d, bfree%d\n",block, block->size, block->bsize, block->bfree);    
+        currentlist = findlist(block->size);
         struct head *aft = after(block);
         block->free = TRUE;
         aft->bfree = block->free;
         block = merge(block);
-        printf("Post merge ----------------------\n");
-        flistprint();
+        printf("Size: %d\n", block->size);
         insert(block);
     }
     return ;
@@ -179,20 +203,28 @@ void dfree(void *memory){
 
 void flistprint(){
     printf("Start of flistprint-------------------------------------------------------\n");
-    struct head * current = flist;
-    int i=0;
-    while(current!=NULL){
-        printf("Heap number %d\n",i);
-        printf("The head is at (%p), the size is %d, the previous head is (%p) and the next head is (%p)\n", current, current->size, current->prev, current->next);
-        printf("bfree: %d and bsize:%d\n", current->bfree, current->bsize);
-        current = current->next;
-        i++;
+    for(int i = 0; i<NBLIST; i++){
+        if(i<NBLIST-1){
+            printf("-------------------------------------List for block with size %d\n", (i+2)*ALIGN);
+        }
+        else{
+            printf("----------------------------------List for other block\n");
+        }
+        struct head * current = flist[i];
+        int i=0;
+        while(current!=NULL){
+            printf("Heap number %d\n",i);
+            printf("The head is at (%p), the size is %d, the previous head is (%p) and the next head is (%p)\n", current, current->size, current->prev, current->next);
+            printf("bfree: %d and bsize:%d\n", current->bfree, current->bsize);
+            current = current->next;
+            i++;
+        }
     }
     printf("End of flistprint---------------------------------------------------------\n");
 }
 
 int sanity(){
-    struct head * current = flist;
+    struct head * current = flist[0];
     while(current != NULL){
         if(current->next != NULL){
             if(current!= current->next->prev){
@@ -226,4 +258,15 @@ struct head * merge(struct head * block){
     }
 
     return block;
+}
+
+int findlist(size_t size){
+    int res = (size-1)/ALIGN;
+    if(res!=0){
+        res--;
+    }
+    if(res > NBLIST-1){
+        res = NBLIST-1;
+    }
+    return res;
 }
