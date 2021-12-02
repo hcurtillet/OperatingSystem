@@ -256,7 +256,6 @@ struct head * merge(struct head * block){
         detach(aft);
         block->size = block->size + aft->size+HEAD;
     }
-
     return block;
 }
 

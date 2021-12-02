@@ -1,109 +1,221 @@
-The arena is at (0x7f9155d45000) and the size is 65536
+The arena is at (0x7fef086f8000) and the size is 65488
+We'll do 20 allocation(s)
+The min size is 64 and the max size is 512
+We allow a maximum of 5 blocks allocated
+i: 0
+No allocation: We allocate a new block of 455
+dalloc memory for 455
+Real alloc size:480
+0x7fef086f8000
+Allocated list:(0x7fef086f8000)--
+i: 1
+We'll free a block
+Allocated list:(0x7fef086f8000)--
+We free the block (0x7fef086f8000)with the size 456
+Free block (0x7fef086f8000), size:456, bsize:0, bfree0
+Post merge ----------------------
 Start of flistprint-------------------------------------------------------
--------------------------------------List for block with size 16
 Heap number 0
-The head is at (0x7f9155d45000), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 24
-Heap number 0
-The head is at (0x7f9155d49018), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 32
-Heap number 0
-The head is at (0x7f9155d4d030), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
-----------------------------------List for other block
-Heap number 0
-The head is at (0x7f9155d51048), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
+The head is at (0x7fef08707fe8), the size is 0, the previous head is ((nil)) and the next head is ((nil))
+bfree: 1 and bsize:65008
 End of flistprint---------------------------------------------------------
-dalloc memory for 12
-Real alloc size:40 in the list 0
-current (0x7f9155d45000):16384
-We split
-dalloc memory for 28
-Real alloc size:56 in the list 2
-current (0x7f9155d4d030):16384
-We split
-dalloc memory for 1024
-Real alloc size:1048 in the list 3
-current (0x7f9155d51048):16384
-We split
+i: 1
+No allocation: We allocate a new block of 187
+dalloc memory for 187
+Real alloc size:216
+0x7fef086f8000
+Allocated list:(0x7fef086f8000)--
+i: 2
+We'll free a block
+Allocated list:(0x7fef086f8000)--
+We free the block (0x7fef086f8000)with the size 192
+Free block (0x7fef086f8000), size:192, bsize:0, bfree0
+Post merge ----------------------
 Start of flistprint-------------------------------------------------------
--------------------------------------List for block with size 16
 Heap number 0
-The head is at (0x7f9155d45028), the size is 16344, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:16
--------------------------------------List for block with size 24
-Heap number 0
-The head is at (0x7f9155d49018), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 32
-Heap number 0
-The head is at (0x7f9155d4d068), the size is 16328, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:32
-----------------------------------List for other block
-Heap number 0
-The head is at (0x7f9155d51460), the size is 15336, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:1024
+The head is at (0x7fef08707fe8), the size is 0, the previous head is ((nil)) and the next head is ((nil))
+bfree: 1 and bsize:65272
 End of flistprint---------------------------------------------------------
-Free block (0x7f9155d45000), size:16, bsize:0, bfree0
-Size: 16384
+i: 2
+No allocation: We allocate a new block of 243
+dalloc memory for 243
+Real alloc size:272
+0x7fef086f8000
+Allocated list:(0x7fef086f8000)--
+i: 3
+We allocate a new block of 86
+dalloc memory for 86
+Real alloc size:112
+0x7fef086f8110
+Allocated list:(0x7fef086f8110)--(0x7fef086f8000)--
+i: 3
+We'll free a block
+Allocated list:(0x7fef086f8110)--(0x7fef086f8000)--
+rand = 0
+We free the block (0x7fef086f8000)with the size 248
+Free block (0x7fef086f8000), size:248, bsize:0, bfree0
+Post merge ----------------------
 Start of flistprint-------------------------------------------------------
--------------------------------------List for block with size 16
 Heap number 0
-The head is at (0x7f9155d45000), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 24
-Heap number 0
-The head is at (0x7f9155d49018), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 32
-Heap number 0
-The head is at (0x7f9155d4d068), the size is 16328, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:32
-----------------------------------List for other block
-Heap number 0
-The head is at (0x7f9155d51460), the size is 15336, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:1024
+The head is at (0x7fef086f8180), the size is 65104, the previous head is ((nil)) and the next head is (0x7fef08707fe8)
+bfree: 0 and bsize:88
+Heap number 1
+The head is at (0x7fef08707fe8), the size is 0, the previous head is (0x7fef086f8180) and the next head is ((nil))
+bfree: 1 and bsize:65104
 End of flistprint---------------------------------------------------------
-Free block (0x7f9155d4d030), size:32, bsize:0, bfree0
-Size: 16384
+i: 3
+We'll free a block
+Allocated list:(0x7fef086f8110)--
+We free the block (0x7fef086f8110)with the size 88
+Free block (0x7fef086f8110), size:88, bsize:248, bfree1
+Here for block (0x7fef086f8110):248
+Before: (0x7fef086f8000)
+Post merge ----------------------
 Start of flistprint-------------------------------------------------------
--------------------------------------List for block with size 16
 Heap number 0
-The head is at (0x7f9155d45000), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 24
-Heap number 0
-The head is at (0x7f9155d49018), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 32
-Heap number 0
-The head is at (0x7f9155d4d030), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
-----------------------------------List for other block
-Heap number 0
-The head is at (0x7f9155d51460), the size is 15336, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:1024
+The head is at (0x7fef08707fe8), the size is 0, the previous head is ((nil)) and the next head is ((nil))
+bfree: 1 and bsize:65104
 End of flistprint---------------------------------------------------------
-Free block (0x7f9155d51048), size:1024, bsize:0, bfree0
-Size: 16384
+i: 3
+No allocation: We allocate a new block of 324
+dalloc memory for 324
+Real alloc size:352
+0x7fef086f8000
+Allocated list:(0x7fef086f8000)--
+i: 4
+We allocate a new block of 275
+dalloc memory for 275
+Real alloc size:304
+0x7fef086f8160
+Allocated list:(0x7fef086f8160)--(0x7fef086f8000)--
+i: 4
+We allocate a new block of 380
+dalloc memory for 380
+Real alloc size:408
+0x7fef086f8290
+Allocated list:(0x7fef086f8290)--(0x7fef086f8160)--(0x7fef086f8000)--
+i: 4
+We'll free a block
+Allocated list:(0x7fef086f8290)--(0x7fef086f8160)--(0x7fef086f8000)--
+rand = 0
+We free the block (0x7fef086f8160)with the size 280
+Free block (0x7fef086f8160), size:280, bsize:328, bfree0
+Post merge ----------------------
 Start of flistprint-------------------------------------------------------
--------------------------------------List for block with size 16
 Heap number 0
-The head is at (0x7f9155d45000), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 24
-Heap number 0
-The head is at (0x7f9155d49018), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
--------------------------------------List for block with size 32
-Heap number 0
-The head is at (0x7f9155d4d030), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
-----------------------------------List for other block
-Heap number 0
-The head is at (0x7f9155d51048), the size is 16384, the previous head is ((nil)) and the next head is ((nil))
-bfree: 0 and bsize:0
+The head is at (0x7fef086f8428), the size is 64424, the previous head is ((nil)) and the next head is (0x7fef08707fe8)
+bfree: 0 and bsize:384
+Heap number 1
+The head is at (0x7fef08707fe8), the size is 0, the previous head is (0x7fef086f8428) and the next head is ((nil))
+bfree: 1 and bsize:64424
 End of flistprint---------------------------------------------------------
+i: 4
+We'll free a block
+Allocated list:(0x7fef086f8290)--(0x7fef086f8000)--
+rand = 0
+We free the block (0x7fef086f8000)with the size 328
+Free block (0x7fef086f8000), size:328, bsize:0, bfree0
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7fef086f8428), the size is 64424, the previous head is ((nil)) and the next head is (0x7fef08707fe8)
+bfree: 0 and bsize:384
+Heap number 1
+The head is at (0x7fef08707fe8), the size is 0, the previous head is (0x7fef086f8428) and the next head is ((nil))
+bfree: 1 and bsize:64424
+End of flistprint---------------------------------------------------------
+i: 4
+We'll free a block
+Allocated list:(0x7fef086f8290)--
+We free the block (0x7fef086f8290)with the size 384
+Free block (0x7fef086f8290), size:384, bsize:280, bfree1
+Here for block (0x7fef086f8290):280
+Before: (0x7fef086f8160)
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7fef08707fe8), the size is 0, the previous head is ((nil)) and the next head is ((nil))
+bfree: 1 and bsize:64424
+End of flistprint---------------------------------------------------------
+i: 4
+No allocation: We allocate a new block of 287
+dalloc memory for 287
+Real alloc size:312
+0x7fef086f8160
+Allocated list:(0x7fef086f8160)--
+i: 5
+We'll free a block
+Allocated list:(0x7fef086f8160)--
+We free the block (0x7fef086f8160)with the size 288
+Free block (0x7fef086f8160), size:288, bsize:328, bfree0
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7fef08707fe8), the size is 0, the previous head is ((nil)) and the next head is ((nil))
+bfree: 1 and bsize:64824
+End of flistprint---------------------------------------------------------
+i: 5
+No allocation: We allocate a new block of 212
+dalloc memory for 212
+Real alloc size:240
+0x7fef086f8160
+Allocated list:(0x7fef086f8160)--
+i: 6
+We'll free a block
+Allocated list:(0x7fef086f8160)--
+We free the block (0x7fef086f8160)with the size 216
+Free block (0x7fef086f8160), size:216, bsize:328, bfree0
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7fef08707fe8), the size is 0, the previous head is ((nil)) and the next head is ((nil))
+bfree: 1 and bsize:64896
+End of flistprint---------------------------------------------------------
+i: 6
+No allocation: We allocate a new block of 81
+dalloc memory for 81
+Real alloc size:112
+0x7fef086f8160
+Allocated list:(0x7fef086f8160)--
+i: 7
+We allocate a new block of 478
+dalloc memory for 478
+Real alloc size:504
+0x7fef086f81d0
+Allocated list:(0x7fef086f81d0)--(0x7fef086f8160)--
+i: 7
+We'll free a block
+Allocated list:(0x7fef086f81d0)--(0x7fef086f8160)--
+rand = 0
+We free the block (0x7fef086f8160)with the size 88
+Free block (0x7fef086f8160), size:88, bsize:328, bfree0
+Post merge ----------------------
+Start of flistprint-------------------------------------------------------
+Heap number 0
+The head is at (0x7fef086f83c8), the size is 64520, the previous head is ((nil)) and the next head is (0x7fef08707fe8)
+bfree: 0 and bsize:480
+Heap number 1
+The head is at (0x7fef08707fe8), the size is 0, the previous head is (0x7fef086f83c8) and the next head is ((nil))
+bfree: 1 and bsize:64520
+End of flistprint---------------------------------------------------------
+i: 7
+We allocate a new block of 78
+dalloc memory for 78
+Real alloc size:104
+0x7fef086f83c8
+Allocated list:(0x7fef086f83c8)--(0x7fef086f81d0)--
+i: 7
+We allocate a new block of 345
+dalloc memory for 345
+Real alloc size:376
+0x7fef086f8430
+Allocated list:(0x7fef086f8430)--(0x7fef086f83c8)--(0x7fef086f81d0)--
+i: 7
+We'll free a block
+Allocated list:(0x7fef086f8430)--(0x7fef086f83c8)--(0x7fef086f81d0)--
+rand = 1
+We free the block (0x7fef086f81d0)with the size 480
+Free block (0x7fef086f81d0), size:480, bsize:88, bfree1
+Here for block (0x7fef086f81d0):88
+Before: (0x7fef086f8160)
+Post me

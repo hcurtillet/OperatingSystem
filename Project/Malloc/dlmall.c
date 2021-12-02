@@ -170,8 +170,6 @@ void dfree(void *memory){
         block->free = TRUE;
         aft->bfree = block->free;
         block = merge(block);
-        printf("Post merge ----------------------\n");
-        flistprint();
         insert(block);
     }
     return ;
